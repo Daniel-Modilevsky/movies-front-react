@@ -1,8 +1,11 @@
 import '../users/user.css'
 import logo  from "../../img/logo.png";
 import userImage from "../../img/profile-demo.png"
-
-
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+  crossorigin="anonymous"
+/>
 const NavBarComponent =()=>{
         return (
             <nav id="aside-nav">

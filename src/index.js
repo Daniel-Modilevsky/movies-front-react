@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
+import "./style/venobox.css";
+import 'boxicons'
+import "./style/hover.css";
+import './index.css';
+
+
 // import RecomandationSliderComponent from './Components/recomandations/recomandations-slider'
 // import MoviesListsComponent from './Components/movies/movies-list'
 // import MoviesMiniComponent from './Components/movies/movies-mini'
@@ -17,8 +22,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import ReactRouter from './Router/router';
 <link
   rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
   crossorigin="anonymous"
 />
 
