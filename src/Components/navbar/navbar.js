@@ -13,11 +13,11 @@ const NavBarComponent =()=>{
                     <nav className="nav-menu">
                         <ul>
                             <li><a href="/home"><i className="bx bx-home selected"></i> Home</a></li>
-                            <li><a href="/home"><i className="bx bx-user"></i> Profile</a></li>
-                            <li><a href="/home"><i className="bx bx-hash"></i> Top Rated Movies</a></li>
-                            <li><a href="/home"><i className="bx bx-message"></i> Recomandations</a></li>
-                            <li><a href="/home"><i className="bx bx-bookmark"></i> Smart Search</a></li>
-                            <li><a href="/home"><i className="bx bx-detail"></i> Lists</a></li>
+                            <li><a href="/profile"><i className="bx bx-user"></i> Profile</a></li>
+                            <li><a href="/toprated"><i className="bx bx-hash"></i> Top Rated Movies</a></li>
+                            <li><a href="/recomand"><i className="bx bx-message"></i> Recomandations</a></li>
+                            <li><a href="/smart"><i className="bx bx-bookmark"></i> Smart Search</a></li>
+                            <li><a href="/lists"><i className="bx bx-detail"></i> Lists</a></li>
                             <li><a href="/"><i className="bx bx-dots-horizontal-rounded"></i> Logout</a></li>
                         </ul>
                     </nav>
