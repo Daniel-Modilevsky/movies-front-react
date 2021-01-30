@@ -9,11 +9,10 @@ import MoviesMiniComponent from "../movies/movies-mini"
 const HomePage =()=>{
     return (
         <div>
-
-        <NavBarComponent/>
-        <RecomandationSliderComponent/>
-        <MoviesListsComponent/>
-        <MoviesMiniComponent/>
+            <NavBarComponent/>
+            <RecomandationSliderComponent/>
+            <MoviesListsComponent/>
+            <MoviesMiniComponent/>
         </div>
 
 
