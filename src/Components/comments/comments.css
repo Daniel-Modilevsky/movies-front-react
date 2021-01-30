@@ -1,0 +1,137 @@
+/*--------------------------------------------------------------
+# Comment - Form
+--------------------------------------------------------------*/
+
+#my-comment{
+	display: flex;
+	border-bottom: 0.5px solid gray;
+	background-color: black;
+	width:80%;
+	height: 13%;
+	padding: 2%;
+    margin-left: 5%;
+}
+
+#my-comment img{
+	height: 50px;
+	width: 50px;
+	border-radius: 20px;
+	display: inline-block;
+	/* float: left; */
+	margin-left: 1%;
+	margin-top: 1%;
+}
+
+#my-comment form{
+	display: inline-block;
+	width:100%;
+	margin-left: 1%;
+	margin-top: 1%;
+}
+
+#my-comment form textarea{
+	height: 70%;
+	width: 84%;
+	display: inline-block;
+	font-size:19px;
+	margin-left: 1%;
+	margin-top: 1%;
+	border: none;
+    background-color: black;
+    color: aliceblue;
+}
+#my-comment form textarea:focus{
+	border: none;
+    border: none;
+    overflow: auto;
+    outline: none;
+    color: aliceblue;
+}
+ 
+#my-comment form button{
+	border-radius: 20px;
+	display: inline-block;
+	/* float: right; */
+	margin-right: 1%;
+	margin-top: 1.5%;
+}
+
+
+
+/*--------------------------------------------------------------
+# Comments - List
+--------------------------------------------------------------*/
+
+#pid .pid-comment ,  #pid2 .pid-comment{
+    display: block;
+    margin-top: 1%;
+    margin-left: 5%;
+    border: 0.5px solid gray;
+    background-color:aliceblue;
+    width: 80%;
+}
+
+.pid-comment .article-body{
+   width: 80%;
+   display: flex;
+   height: 75%;
+}
+
+.pid-comment .article-body img{
+   height: 50px;
+   width: 50px;
+   border-radius: 20px;
+   display: inline-block;
+   /* float: left; */
+   margin-left: 1%;
+   margin-top: 2%;
+}
+.pid-comment .article-body label{
+   display: inline-block;
+   margin-left: 1%;
+   margin-top: 2%;
+   font-size: 18px;
+    font-weight: bold;
+    color:#333;
+}
+.pid-comment .article-body p{
+   height: 70%;
+   width: 87%;
+   display: inline-block;
+   font-size:14px;
+   margin-left: 2%;
+   margin-top: 2%;
+   border: none;
+}
+.pid-comment .article-footer {
+   width: 93%;
+   height: 25%;
+   display:flex;
+}
+ .article-footer ul{
+   display:block;
+   width:100%;
+ }
+ 
+ .article-footer ul li{
+   display:inline-block;
+   list-style:none;
+   margin-top:0.5%;
+ }
+ .article-footer ul li:hover{
+   color: #1da1f2;
+   cursor: pointer;
+ }
+ 
+.icon-left{
+   float: left;
+   margin-left: 2%;
+}
+ .icon-right{
+   float: right;
+   margin-right: 4%;
+}
+
+.article-footer ul li i{
+   display:inline-block;
+}

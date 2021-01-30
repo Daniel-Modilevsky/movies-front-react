@@ -1,0 +1,86 @@
+  /*--------------------------------------------------------------
+# List - Movies
+--------------------------------------------------------------*/
+.movies-list{
+    display: block;
+	width: 100%;
+    height: 180px;
+    padding-top: 1%;
+}
+.movies-list h4{
+    font-weight: bold;
+    margin-left: 1%;
+    color: #D27E7E;
+}
+.movies-list article{
+	display: inline-block;
+	margin-left: 0.5%;
+    margin-top: 1%;
+	border: 1px solid gray;
+ }
+.movies-list article:hover{
+     cursor:pointer;
+}
+.movies-list article img{
+	 display: block;
+}
+
+ 
+ 
+ /*--------------------------------------------------------------
+# Movie - Show 
+--------------------------------------------------------------*/
+
+#movie{
+    display: block;
+	/*position: relative;*/
+    width: 80%;
+    margin-left: 5%;
+    border-bottom: 1px solid gray;
+    padding: 1%;
+    height: 40%;
+    font-size: 16px;
+}
+#movie img{
+    display: block;
+    height: 35%;
+    width: 100%;
+    border: 1px solid gray;
+}
+#movie-details{
+    margin-top:2%;
+    background-color: black;
+    color:white;
+}
+#movie-details .movie-right{
+    display: inline-block;
+	position: absolute;
+    width: 50%;
+} 
+
+#movie-details .movie-left{
+    display: inline-block;
+	position: relative;
+    margin-left:0%;
+    width: 49%;
+} 
+#movie-details ul li{
+   list-style: none;
+}
+#movie-details label{
+   font-weight: bold;
+   color: #666;
+   font-size: 18px;
+}
+#movie-details p{
+    display: block;
+    /*position: relative;*/
+    width: 100%;
+    height: 5%;
+    margin-left: 4%;
+}
+#movie-details p label{
+    color: #D27E7E;
+}
+
+
