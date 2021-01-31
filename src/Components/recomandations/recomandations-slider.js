@@ -1,21 +1,21 @@
 import './recomandations.css'
 import background  from "../../img/background-1.jpg";
 import React,{useState,useEffect , useRef} from 'react';
+import useInterval from '@use-it/interval';
 import $ from 'jquery'; 
 
 const RecomandationSliderComponent =()=>{
     let index =0;
-    let [count, setCount] = useState(0);
-    const [dataa,setDataa]=useState([]);
+    let data = [];
+
+
     async function getPopulars(){
         try{
             let response = await fetch('https://movies-smart.herokuapp.com/api/populars');
             if (response.ok) { 
                 let json = await response.json();
-                setDataa(json);
+                data = json;
                 displayPreviousImage(json , index);
-                index++;
-                if(index === 5) index = 0;
                 console.log(json);
             }
         }
@@ -24,38 +24,14 @@ const RecomandationSliderComponent =()=>{
         }
     }
     useEffect(()=>{
-        getPopulars()
-        
-      })
-
-       function useInterval(callback, delay) {
-        // const savedCallback = useRef();
-      
-        // // Remember the latest callback.
-        // useEffect(() => {
-        //   savedCallback.current = callback;
-        // }, [callback]);
-      
-        // // Set up the interval.
-        // useEffect(() => {
-        //   function tick() {
-        //     savedCallback.current();
-        //   }
-        //   if (delay !== null) {
-        //     let id = setInterval(tick, delay);
-        //     return () => clearInterval(id);
-        //   }
-        // }, [delay]);
-       }
-
-
-
+         getPopulars()
+  
+    })
 
       function displayPreviousImage(movies , index) {
         $("#our-recomandation").empty();
         let movie = movies[index];
         $('#our-recomandation').append("<img src = '" +'https://movies-smart.herokuapp.com/' + movie.image + "' class='img-popular-big' >" );
-
     }
 
 
@@ -63,7 +39,9 @@ const RecomandationSliderComponent =()=>{
 
     
      useInterval(() => {
-         setCount(count + 1);
+         index++;
+         if(index === 5) index = 0;
+        displayPreviousImage(data,index);
        }, 3000);
     return (
     <div id="our-recomandation">
