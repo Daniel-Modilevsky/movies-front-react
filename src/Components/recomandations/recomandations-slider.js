@@ -1,6 +1,7 @@
 import './recomandations.css'
 import background  from "../../img/background-1.jpg";
 import React,{useState,useEffect , useRef} from 'react';
+import useInterval from '@use-it/interval';
 import $ from 'jquery'; 
 
 const RecomandationSliderComponent =()=>{
@@ -14,8 +15,6 @@ const RecomandationSliderComponent =()=>{
                 let json = await response.json();
                 setData(json);
                 displayPreviousImage(json , index);
-                index++;
-                if(index === 5) index = 0;
                 console.log(json);
             }
         }
@@ -64,7 +63,9 @@ const RecomandationSliderComponent =()=>{
 
     
      useInterval(() => {
-         setCount(count + 1);
+         index++;
+         if(index === 5) index = 0;
+        displayPreviousImage(data,index);
        }, 3000);
     return (
     <div id="our-recomandation">
