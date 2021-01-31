@@ -62,7 +62,7 @@
 # Comments - List
 --------------------------------------------------------------*/
 
-#pid .pid-comment ,  #pid2 .pid-comment{
+#pid .pid-comment ,  #pid2 article, .pid-comment{
     display: block;
     margin-top: 1%;
     margin-left: 5%;
@@ -71,13 +71,17 @@
     width: 80%;
 }
 
-.pid-comment .article-body{
+#pid2 article div{
    width: 80%;
    display: flex;
    height: 75%;
 }
-
-.pid-comment .article-body img{
+#pid2 article:hover{
+   cursor: pointer;
+   background-color: #1da1f2;
+   transition: 0.3s;
+}
+#pid2 article div img{
    height: 50px;
    width: 50px;
    border-radius: 20px;
@@ -86,7 +90,7 @@
    margin-left: 1%;
    margin-top: 2%;
 }
-.pid-comment .article-body label{
+#pid2 article div label{
    display: inline-block;
    margin-left: 1%;
    margin-top: 2%;
@@ -94,7 +98,7 @@
     font-weight: bold;
     color:#333;
 }
-.pid-comment .article-body p{
+#pid2 article div p{
    height: 70%;
    width: 87%;
    display: inline-block;
@@ -103,38 +107,8 @@
    margin-top: 2%;
    border: none;
 }
-.pid-comment .article-footer {
-   width: 93%;
-   height: 25%;
-   display:flex;
-}
- .article-footer ul{
-   display:block;
-   width:100%;
- }
- 
- .article-footer ul li{
-   display:inline-block;
-   list-style:none;
-   margin-top:0.5%;
- }
- .article-footer ul li:hover{
-   color: #1da1f2;
-   cursor: pointer;
- }
- 
-.icon-left{
-   float: left;
-   margin-left: 2%;
-}
- .icon-right{
-   float: right;
-   margin-right: 4%;
-}
 
-.article-footer ul li i{
-   display:inline-block;
-}
+
 
 /*--------------------------------------------------------------
 # Admin

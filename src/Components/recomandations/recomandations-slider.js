@@ -6,13 +6,13 @@ import $ from 'jquery';
 const RecomandationSliderComponent =()=>{
     let index =0;
     let [count, setCount] = useState(0);
-    const [dataa,setDataa]=useState([]);
+    const [data,setData]=useState([]);
     async function getPopulars(){
         try{
             let response = await fetch('https://movies-smart.herokuapp.com/api/populars');
             if (response.ok) { 
                 let json = await response.json();
-                setDataa(json);
+                setData(json);
                 displayPreviousImage(json , index);
                 index++;
                 if(index === 5) index = 0;
@@ -25,28 +25,29 @@ const RecomandationSliderComponent =()=>{
     }
     useEffect(()=>{
         getPopulars()
-        
-      })
-
-       function useInterval(callback, delay) {
-        // const savedCallback = useRef();
-      
-        // // Remember the latest callback.
-        // useEffect(() => {
-        //   savedCallback.current = callback;
-        // }, [callback]);
-      
-        // // Set up the interval.
-        // useEffect(() => {
-        //   function tick() {
-        //     savedCallback.current();
-        //   }
-        //   if (delay !== null) {
-        //     let id = setInterval(tick, delay);
-        //     return () => clearInterval(id);
-        //   }
-        // }, [delay]);
-       }
+    })
+    const gotoRecomandations = ()=>{
+        window.location.replace('/recomand'); 
+    }
+    function useInterval(callback, delay) {
+    // const savedCallback = useRef();
+    
+    // // Remember the latest callback.
+    // useEffect(() => {
+    //   savedCallback.current = callback;
+    // }, [callback]);
+    
+    // // Set up the interval.
+    // useEffect(() => {
+    //   function tick() {
+    //     savedCallback.current();
+    //   }
+    //   if (delay !== null) {
+    //     let id = setInterval(tick, delay);
+    //     return () => clearInterval(id);
+    //   }
+    // }, [delay]);
+    }
 
 
 
@@ -54,7 +55,7 @@ const RecomandationSliderComponent =()=>{
       function displayPreviousImage(movies , index) {
         $("#our-recomandation").empty();
         let movie = movies[index];
-        $('#our-recomandation').append("<img src = '" +'https://movies-smart.herokuapp.com/' + movie.image + "' class='img-popular-big' >" );
+        $('#our-recomandation').append("<img src = '" +'https://movies-smart.herokuapp.com/' + movie.image + "' class='img-popular-big' onClick='gotoRecomandations()'>" );
 
     }
 

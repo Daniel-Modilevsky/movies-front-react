@@ -2,9 +2,6 @@ import React, { Component}  from "react";
 import './user.css'
 import logo  from "../../img/logo.png";
 
-//import { Redirect } from 'react-router-dom';
-//import { useHistory } from "react-router-dom";
-
 class LoginFormComponent extends Component{
     constructor(props) {
         super(props);

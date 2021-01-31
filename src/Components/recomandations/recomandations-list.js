@@ -2,9 +2,7 @@ import React, { useEffect}  from "react";
 import './recomandations.css'
 import $ from 'jquery'; 
 
-
-const RecomandListComponent =()=>{
-        
+const RecomandListComponent =()=>{ 
     useEffect(()=>{
         getPopulars();
     })
