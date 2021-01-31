@@ -6,7 +6,6 @@ import 'boxicons'
 import "./style/hover.css";
 import './index.css';
 
-
 // import RecomandationSliderComponent from './Components/recomandations/recomandations-slider'
 // import MoviesListsComponent from './Components/movies/movies-list'
 // import MoviesMiniComponent from './Components/movies/movies-mini'

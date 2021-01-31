@@ -226,17 +226,34 @@ margin-top: 10%;
   transition: 0.3s;
   font-size: 15px;
 }
-
+.far{
+  color: white;
+}
 .nav-menu a i {
   font-size: 24px;
   padding-right: 8px;
   color: #6f7180;
 }
-
+.nav-menu a box-icon {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f7180;
+}
+.bx{
+  height: 25px;
+  width: 25px;
+  margin-right: 3%;
+}
 .nav-menu a:hover,
 .nav-menu .active > a,
 .nav-menu li:hover > a {
   text-decoration: none;
+  color: #D27E7E;
+}
+
+.nav-menu a:hover box-icon,
+.nav-menu .active > a box-icon,
+.nav-menu li:hover > a box-icon {
   color: #D27E7E;
 }
 

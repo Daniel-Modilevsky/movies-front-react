@@ -4,14 +4,11 @@ import './movies.css'
 
 const MoviesListsComponent =()=>{
         
-    
     useEffect(()=>{
         getMoviesByCategory('Comedy', '.list1');
         getMoviesByCategory('Action', '.list2');
         getMoviesByCategory('Drama', '.list3');
-        
       })
-    
     
     async function getMoviesByCategory(category,list){
         try{
@@ -25,8 +22,8 @@ const MoviesListsComponent =()=>{
                     '<article class="movie-mini hvr-curl-top-right hvr-shrink" onClick="sendIdToMovie(\'' + movie._id + '\')" >' +
                     "<img src = '" +'https://movies-smart.herokuapp.com/' + movie.image + "'>" +
                     "</article>"
-            );
-        });
+                    );
+                });
                 console.log(json);
             }
         }
@@ -39,17 +36,14 @@ const MoviesListsComponent =()=>{
     
     
     return (
-
             <div id="pid">  
-            <div class="movies-list list1">
+                <div class="movies-list list1">
+                </div>
+                <div class="movies-list list2">
+                </div>
+                <div class="movies-list list3">
+                </div>
             </div>
-             <div class="movies-list list2">
-            </div>
-             <div class="movies-list list3">
-            </div>
-        </div>
-
-
         )
     }
 

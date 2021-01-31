@@ -1,11 +1,14 @@
 import '../users/user.css'
 import logo  from "../../img/logo.png";
 import userImage from "../../img/profile-demo.png"
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
-  crossorigin="anonymous"
-/>
+import { BiCaretDownCircle } from 'react-icons/bi';
+import { BiAlignJustify } from 'react-icons/bi';
+import { BiCodeAlt } from 'react-icons/bi';
+import { BiHomeAlt } from 'react-icons/bi';
+import { BiUserCircle } from 'react-icons/bi';
+import { BiSelectMultiple } from 'react-icons/bi';
+import { BiLoaderCircle } from 'react-icons/bi';
+
 const NavBarComponent =()=>{
         return (
             <nav id="aside-nav">
@@ -15,13 +18,13 @@ const NavBarComponent =()=>{
                     </div>
                     <nav className="nav-menu">
                         <ul>
-                            <li><a href="/home"><i className="bx bx-home selected"></i> Home</a></li>
-                            <li><a href="/profile"><i className="bx bx-user"></i> Profile</a></li>
-                            <li><a href="/toprated"><i className="bx bx-hash"></i> Top Rated Movies</a></li>
-                            <li><a href="/recomand"><i className="bx bx-message"></i> Recomandations</a></li>
-                            <li><a href="/smart"><i className="bx bx-bookmark"></i> Smart Search</a></li>
-                            <li><a href="/lists"><i className="bx bx-detail"></i> Lists</a></li>
-                            <li><a href="/"><i className="bx bx-dots-horizontal-rounded"></i> Logout</a></li>
+                            <li><a href="/home"><BiHomeAlt className="bx"/> Home</a></li>
+                            <li><a href="/profile"><BiUserCircle className="bx"/> Profile</a></li>
+                            <li><a href="/toprated"><BiLoaderCircle className="bx"/> Top Rated Movies</a></li>
+                            <li><a href="/recomand"><BiSelectMultiple className="bx"/> Recomandations</a></li>
+                            <li><a href="/smart"><BiCodeAlt className="bx"/> Smart Search</a></li>
+                            <li><a href="/lists"><BiAlignJustify className="bx"/> Lists</a></li>
+                            <li><a href="/"><BiCaretDownCircle className="bx"/> Logout</a></li>
                         </ul>
                     </nav>
                 </div>

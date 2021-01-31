@@ -6,16 +6,16 @@ import $ from 'jquery';
 const RecomandationSliderComponent =()=>{
     let index =0;
     let [count, setCount] = useState(0);
-    const [data,setData]=useState([]);
+    const [dataa,setDataa]=useState([]);
     async function getPopulars(){
         try{
             let response = await fetch('https://movies-smart.herokuapp.com/api/populars');
             if (response.ok) { 
                 let json = await response.json();
-                setData(json);
+                setDataa(json);
                 displayPreviousImage(json , index);
                 index++;
-                if(index == 5) index = 0;
+                if(index === 5) index = 0;
                 console.log(json);
             }
         }
@@ -29,23 +29,23 @@ const RecomandationSliderComponent =()=>{
       })
 
        function useInterval(callback, delay) {
-    //     const savedCallback = useRef();
+        // const savedCallback = useRef();
       
-    //     // Remember the latest callback.
-    //     useEffect(() => {
-    //       savedCallback.current = callback;
-    //     }, [callback]);
+        // // Remember the latest callback.
+        // useEffect(() => {
+        //   savedCallback.current = callback;
+        // }, [callback]);
       
-    //     // Set up the interval.
-    //     useEffect(() => {
-    //       function tick() {
-    //         savedCallback.current();
-    //       }
-    //       if (delay !== null) {
-    //         let id = setInterval(tick, delay);
-    //         return () => clearInterval(id);
-    //       }
-    //     }, [delay]);
+        // // Set up the interval.
+        // useEffect(() => {
+        //   function tick() {
+        //     savedCallback.current();
+        //   }
+        //   if (delay !== null) {
+        //     let id = setInterval(tick, delay);
+        //     return () => clearInterval(id);
+        //   }
+        // }, [delay]);
        }
 
 

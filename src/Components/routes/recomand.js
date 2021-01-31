@@ -1,5 +1,5 @@
 import NavBarComponent from "../navbar/navbar"
-
+import RecomandListComponent from '../recomandations/recomandations-list'
 const RecomandPage =()=>{
     return (
         <div>
@@ -8,6 +8,7 @@ const RecomandPage =()=>{
             <header>
                 <h1>Recomand Page</h1>
             </header>
+            <RecomandListComponent/>
         </main>
     </div>
     );
