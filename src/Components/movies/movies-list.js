@@ -9,7 +9,11 @@ const MoviesListsComponent =()=>{
         getMoviesByCategory('Action', '.list2');
         getMoviesByCategory('Drama', '.list3');
       })
-    
+    function sendIdToMovie(movieID){
+        localStorage.setItem('movieID',movieID );
+        console.log(movieID);
+        window.location.replace('/movie');
+    }
     async function getMoviesByCategory(category,list){
         try{
             let response = await fetch(`https://movies-smart.herokuapp.com/api/categories/${category}`);
@@ -19,7 +23,7 @@ const MoviesListsComponent =()=>{
                 $(list).append(`<h4>${category}</h4>`);
                 json.forEach(movie => {
                     $(list).append(
-                    '<article class="movie-mini hvr-curl-top-right hvr-shrink" onClick="sendIdToMovie(\'' + movie._id + '\')" >' +
+                    '<article class="movie-mini hvr-curl-top-right hvr-shrink" onClick="sendIdToMovie(movie._id)" >' +
                     "<img src = '" +'https://movies-smart.herokuapp.com/' + movie.image + "'>" +
                     "</article>"
                     );

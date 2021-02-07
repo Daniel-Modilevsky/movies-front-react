@@ -124,7 +124,8 @@
 }
 .header-admin{
    border-bottom: 1px solid gray;
-   width: 100%;
+   width: 99%;
+   margin-left: 5.5%;
    text-align: center; 
    background-color: black;
 }
@@ -147,6 +148,7 @@
   display: inline-block;
 }
 .pid-comment .article-body{
+   margin-left: 5%;
   width: 60%;
    height: 100%;
   display: inline-flex;
