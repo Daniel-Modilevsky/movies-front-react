@@ -11,8 +11,12 @@ const HomePage =()=>{
                 <header>
                     <h1>Home Page</h1>
                 </header>
-                <RecomandationSliderComponent/>
-                <MoviesListsComponent/>
+                    <RecomandationSliderComponent/>
+                <div id="pid">  
+                    <MoviesListsComponent  type = {'Comedy'}  />
+                    <MoviesListsComponent  type = {'Action'}  />
+                    <MoviesListsComponent  type = {'Drama'}   />
+                </div>
             </main>
         </div>
     );

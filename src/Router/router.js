@@ -13,7 +13,7 @@ import RecomandPage from '../Components/routes/recomand';
 import SmartPage from '../Components/routes/smart';
 import TopRatedPage from '../Components/routes/toprated';
 
-const ReactRouter =() =>{
+const ReactRouter =() =>{ 
     return(
         <React.Fragment>
             <Route exact path ="/" component = {IndexPage}/>

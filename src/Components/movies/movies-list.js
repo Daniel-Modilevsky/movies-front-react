@@ -1,48 +1,31 @@
-import $ from 'jquery'; 
-import React ,{useEffect} from 'react';
+import React ,{useEffect, useState} from 'react';
 import './movies.css'
+import MoviesMiniComponent from './movies-mini'
 
-const MoviesListsComponent =()=>{
-        
+const MoviesListsComponent =(props)=>{
+    const [type] = useState(props.type);
+    const [movies, setMovies] = useState([]);
+
     useEffect(()=>{
-        getMoviesByCategory('Comedy', '.list1');
-        getMoviesByCategory('Action', '.list2');
-        getMoviesByCategory('Drama', '.list3');
-      })
-    
-    async function getMoviesByCategory(category,list){
+        getMoviesByCategory(props.type);
+    },[])
+    async function getMoviesByCategory(category){
         try{
-            let response = await fetch(`https://movies-smart.herokuapp.com/api/categories/${category}`);
-            if (response.ok) { 
-                let json = await response.json();
-                $(list).empty();
-                $(list).append(`<h4>${category}</h4>`);
-                json.forEach(movie => {
-                    $(list).append(
-                    '<article class="movie-mini hvr-curl-top-right hvr-shrink" onClick="sendIdToMovie(\'' + movie._id + '\')" >' +
-                    "<img src = '" +'https://movies-smart.herokuapp.com/' + movie.image + "'>" +
-                    "</article>"
-                    );
-                });
-                console.log(json);
-            }
+            await fetch(`https://movies-smart.herokuapp.com/api/categories/${category}`)
+                .then(function(response){ return response.json(); })
+                .then(function(data) {
+                setMovies(data);
+                console.log(data);
+            });
         }
         catch(error){
             console.log(`error - getMoviesByCategory - ${error}`);
         }
     }
-    
-    
-    
-    
     return (
-            <div id="pid">  
-                <div class="movies-list list1">
-                </div>
-                <div class="movies-list list2">
-                </div>
-                <div class="movies-list list3">
-                </div>
+            <div className ={`movies-list`}>
+                <h4>{type}</h4>
+                    {movies.map((item,index)=> { return <MoviesMiniComponent key = {index} movieID = {item._id} image = {item.image} /> })}
             </div>
         )
     }

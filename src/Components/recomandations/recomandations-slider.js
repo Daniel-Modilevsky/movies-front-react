@@ -1,19 +1,19 @@
 import './recomandations.css'
 import background  from "../../img/background-1.jpg";
-import React,{useState,useEffect , useRef} from 'react';
+import React,{useEffect } from 'react';
 import useInterval from '@use-it/interval';
 import $ from 'jquery'; 
 
 const RecomandationSliderComponent =()=>{
-    let index =0;
-    let [count, setCount] = useState(0);
-    const [data,setData]=useState([]);
+    let index = 0;
+    let data = [];
+
     async function getPopulars(){
         try{
             let response = await fetch('https://movies-smart.herokuapp.com/api/populars');
             if (response.ok) { 
                 let json = await response.json();
-                setData(json);
+                data = json;
                 displayPreviousImage(json , index);
                 console.log(json);
             }
@@ -22,43 +22,16 @@ const RecomandationSliderComponent =()=>{
             console.log(`error - getPopulars - ${error}`);
         }
     }
+    
     useEffect(()=>{
-        getPopulars()
-    })
-    const gotoRecomandations = ()=>{
-        window.location.replace('/recomand'); 
-    }
-    function useInterval(callback, delay) {
-    // const savedCallback = useRef();
-    
-    // // Remember the latest callback.
-    // useEffect(() => {
-    //   savedCallback.current = callback;
-    // }, [callback]);
-    
-    // // Set up the interval.
-    // useEffect(() => {
-    //   function tick() {
-    //     savedCallback.current();
-    //   }
-    //   if (delay !== null) {
-    //     let id = setInterval(tick, delay);
-    //     return () => clearInterval(id);
-    //   }
-    // }, [delay]);
-    }
-
-
-
+         getPopulars()
+    },[])
 
       function displayPreviousImage(movies , index) {
         $("#our-recomandation").empty();
         let movie = movies[index];
-        $('#our-recomandation').append("<img src = '" +'https://movies-smart.herokuapp.com/' + movie.image + "' class='img-popular-big' onClick='gotoRecomandations()'>" );
-
+        $('#our-recomandation').append("<img src = '" +'https://movies-smart.herokuapp.com/' + movie.image + "' class='img-popular-big' >" );
     }
-
-
 
 
     

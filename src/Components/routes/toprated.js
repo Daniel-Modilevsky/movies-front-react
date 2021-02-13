@@ -1,4 +1,5 @@
 import NavBarComponent from "../navbar/navbar"
+import TopRatedListsComponent from '../movies/toprated-list'
 
 const TopRatedPage =()=>{
     return (
@@ -8,6 +9,9 @@ const TopRatedPage =()=>{
                 <header>
                     <h1>Top Rated Page</h1>
                 </header>
+                <div id="pid">  
+                    <TopRatedListsComponent/>
+                </div>
             </main>
         </div>
     );

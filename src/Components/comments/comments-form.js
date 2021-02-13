@@ -1,6 +1,8 @@
 import React, { Component}  from "react";
 import './comments.css'
-import profile  from "../../img/profile-demo.png";
+import user  from "../../img/profile-demo.png";
+import admin  from "../../img/profile-demo2.jpg";
+import Swal from 'sweetalert2';
 
 class CommentFormComponent extends Component{
     constructor(props) {
@@ -9,14 +11,23 @@ class CommentFormComponent extends Component{
             description: '',
             creationBy: '',
             commentOn: '',
-            creationByName: ''
+            creationByName: '',
+            image:''
         };
+    }
+    componentWillMount = () => {
+        if(localStorage.getItem('isAdmin') === 'user'){
+            this.setState({image: user});
+        }
+        else{
+            this.setState({image: admin});
+        }
     }
     descriptionHandler = (event) => {
         this.setState({description: event.target.value});
-        this.setState({creationBy: "5fdf1c51968be632f0b3c60a"});
-        this.setState({commentOn: "5fe3a38b154ccf347419c1ab"});
-        this.setState({creationByName: "anar"});
+        this.setState({creationBy: localStorage.getItem('userID')});
+        this.setState({commentOn: localStorage.getItem('movieID')});
+        this.setState({creationByName: localStorage.getItem('userName')});
     }
     mySubmitHandler = (event) => {
         event.preventDefault();
@@ -38,8 +49,12 @@ class CommentFormComponent extends Component{
                 body: JSON.stringify(formData)
             });
             if (response.ok) { 
-                let json = await response.json();
-                console.log(json);
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Waiting for admin approve',
+                    showConfirmButton: false,
+                    timer: 2000
+                  })
             }
         }
         catch(error){
@@ -50,7 +65,7 @@ class CommentFormComponent extends Component{
     render(){
         return (
             <section id="my-comment" className="hvr-underline-from-left">
-              <img src={profile} alt="profile"/>
+              <img src={this.state.image} alt="profile"/>
                 <form id="" method="post" onSubmit={this.mySubmitHandler}>
                     <textarea className="" placeholder="What's Happening?" id="description" name="description" onChange={this.descriptionHandler}></textarea>
                     <button type="submit" className="btn btn-danger" id="comment-button">Comment</button>

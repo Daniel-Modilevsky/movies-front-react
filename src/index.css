@@ -310,7 +310,6 @@ padding: 1%;
 }
 
 main header h1{
-/* float: left; */
 left: 0;
 display:inline-block;
 font-size: 20px;
@@ -351,10 +350,23 @@ header form .search-bar {
   cursor: pointer;
 }
 
-#pid,  #pid2{
+main{
   background-color: black;
-margin-top: 0%;
-height:100%;
-padding:1%;
+  margin-top: 0%;
+  height:100%;
 }
 
+#pid,  #pid2 , #my-profile-list{
+  background-color: black;
+  margin-top: 0%;
+  height:100%;
+  padding:1%;
+}
+
+ #search-form{
+   display: block;
+  background-color: black;
+  margin-top: 7%;
+  height:800px;
+  padding:1%;
+}

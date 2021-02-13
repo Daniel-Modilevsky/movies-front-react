@@ -124,7 +124,8 @@
 }
 .header-admin{
    border-bottom: 1px solid gray;
-   width: 100%;
+   width: 99%;
+   margin-left: 5.5%;
    text-align: center; 
    background-color: black;
 }
@@ -147,6 +148,7 @@
   display: inline-block;
 }
 .pid-comment .article-body{
+   margin-left: 5%;
   width: 60%;
    height: 100%;
   display: inline-flex;
@@ -186,4 +188,55 @@
    cursor: pointer;
    background-color:firebrick;
    border-radius: 30px;
+}
+
+
+/*--------------------------------------------------------------
+# Comments - Profile
+--------------------------------------------------------------*/
+/*
+ <div className="pid-comment hvr-rectangle-out ">
+            <section className="comment-movie">
+                <img src={iamge} alt="iamge"/>
+            </section>
+            <section className="article-body">
+                <label>{creationByName}:</label>
+                <p> {description} </p>
+            </section>
+        </div> 
+*/
+#my-profile-list .pid-comment{
+   display: block;
+   margin-top: 1%;
+   margin-left: 5%;
+   border: 0.5px solid gray;
+   background-color:aliceblue;
+   width: 80%;
+}
+#my-profile-list .pid-comment:hover{
+  cursor: pointer;
+  background-color: #1da1f2;
+  transition: 0.3s;
+}
+#my-profile-list .pid-comment section img{
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  margin-left: 1%;
+  margin-top: 2%;
+}
+#my-profile-listarticle .pid-comment section label{
+  display: inline-block;
+  font-size: 18px;
+   font-weight: bold;
+   color:#333;
+}
+#my-profile-list .pid-comment section p{
+  height: 70%;
+  width: 87%;
+  display: inline-block;
+  font-size:14px;
+  margin-left: 2%;
+  margin-top: 3%;
+  border: none;
 }

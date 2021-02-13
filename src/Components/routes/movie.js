@@ -13,7 +13,7 @@ const MoviePage =()=>{
                 </header>
                 <MovieShowComponent/>
                 <CommentFormComponent/>
-                <CommentListComponent/>
+                <CommentListComponent/> 
             </main>
         </div>
     );

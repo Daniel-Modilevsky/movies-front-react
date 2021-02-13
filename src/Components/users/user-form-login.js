@@ -35,7 +35,12 @@ class LoginFormComponent extends Component{
             });
             if (response.ok) { 
                 let json = await response.json();
-                console.log(json);
+                let user = json.profile;
+                localStorage.setItem('userName', user.user_name );
+                localStorage.setItem('userID', user._id );
+                localStorage.setItem('userMail', user.email);;
+                if(user.isAdmin) {localStorage.setItem('isAdmin', 'admin' );}
+                else {localStorage.setItem('isAdmin', 'user' );}
                 window.location.replace('/home');
             }
         }

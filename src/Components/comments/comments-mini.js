@@ -1,23 +1,29 @@
-import React, { Component}  from "react";
 import './comments.css'
+import React, { useState, useEffect } from 'react';
 
-class CommentMiniComponent extends Component{
-    render(){
-        return (
-            <article class="pid-comment hvr-rectangle-out ">
-                <div class="article-body">
-                    <label>comment.creationByName:</label>
-                    <p> comment.description </p>
-                </div>
-                <footer class="article-footer">
-                    <ul>
-                        <li class="icon-left"><i class="bx bx-message"></i><span>1</span></li>
-                        <li class="icon-right"><i class="bx bx-heart"></i><span>1</span></li>
-                    </ul>
-                </footer>
-            </article> 
-        )
+function CommentMiniComponent(props){
+    const [creationByName, setCreationByName] = useState("");
+    const [description, setDescription] = useState("");
+
+    useEffect(() => {
+        commentMiniHandler(props.comment)
+    });
+
+    function commentMiniHandler(comment){
+        setCreationByName(props.comment.creationByName);
+        setDescription(props.comment.description);
     }
+
+
+    return (
+        <div className="pid-comment hvr-rectangle-out ">
+            <section className="article-body">
+                <label>{creationByName}:</label>
+                <p> {description} </p>
+            </section>
+        </div> 
+    );
 }
 
 export default CommentMiniComponent;
+
