@@ -47,7 +47,6 @@ const MovieShowComponent =()=>{
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formData)
             });
             if (response.ok) { 
                 await response.json().then(async function(movie) {
@@ -57,6 +56,31 @@ const MovieShowComponent =()=>{
                     setPlot(movie.data.plot);
                     setMovieTime(movie.data.length);
                 })
+            }
+        }
+        catch(error){
+            console.log(`error - getIMDB - ${error}`);
+        }
+    }
+
+
+
+
+
+    async function getIMDB(name){
+        try{
+            const formData = {
+                'name' : name
+            };
+            let response = await fetch('https://movies-smart.herokuapp.com/api/movies/IMDB', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+            if (response.ok) { 
+                let movie = await response.json();
             }
         }
         catch(error){
