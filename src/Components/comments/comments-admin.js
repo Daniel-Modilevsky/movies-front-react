@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './comments.css'
 import { BiCheckCircle } from 'react-icons/bi';
 import { BiXCircle } from 'react-icons/bi';
-//import { withSwalInstance } from 'sweetalert2-react';
-//import swal from 'sweetalert2';
-//const SweetAlert = withSwalInstance(swal);
 import Swal from 'sweetalert2';
 
 function CommentAdminComponent(props){
