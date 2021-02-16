@@ -2,7 +2,12 @@ import React, { useEffect, useState}  from "react";
 import './movies.css'
 
 const MovieShowComponent =()=>{
-    const [movieID] = useState(localStorage.getItem('movieID'));
+    const [movieID] = useState(localStorage.getItem('favoriteMovie'));
+    const [name] = useState(JSON.parse(localStorage.getItem('movieName')).item.name);
+    //console.log("the name is :");
+    //console.log(name.item.name);
+
+
     const [movieName, setMovieName] = useState('');
     
     const [image, setMovieImage] = useState('');
@@ -17,7 +22,7 @@ const MovieShowComponent =()=>{
 
     useEffect(()=>{
         getMovie();
-        getIMDB();
+        getIMDB(name);
     },[])
     async function getMovie(){
         try{
@@ -37,31 +42,31 @@ const MovieShowComponent =()=>{
             console.log(`error - getMovie - ${error}`);
         }
     }
-    async function getIMDB(){
-        try{
-            const formData = {
-                'name' : movieName
-            };
-            let response = await fetch('https://movies-smart.herokuapp.com/api/movies/IMDB', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            });
-            if (response.ok) { 
-                await response.json().then(async function(movie) {
-                    console.log(movie);
-                    setMovieImage(movie.data.poster);
-                    setMovieRate(movie.data.rating);
-                    setPlot(movie.data.plot);
-                    setMovieTime(movie.data.length);
-                })
-            }
-        }
-        catch(error){
-            console.log(`error - getIMDB - ${error}`);
-        }
-    }
+    // async function getIMDB(){
+    //     try{
+    //         const formData = {
+    //             'name' : movieName
+    //         };
+    //         let response = await fetch('https://movies-smart.herokuapp.com/api/movies/IMDB', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //         });
+    //         if (response.ok) { 
+    //             await response.json().then(async function(movie) {
+    //                 console.log(movie);
+    //                 setMovieImage(movie.data.poster);
+    //                 setMovieRate(movie.data.rating);
+    //                 setPlot(movie.data.plot);
+    //                 setMovieTime(movie.data.length);
+    //             })
+    //         }
+    //     }
+    //     catch(error){
+    //         console.log(`error - getIMDB - ${error}`);
+    //     }
+    // }
 
 
 
@@ -81,6 +86,12 @@ const MovieShowComponent =()=>{
             });
             if (response.ok) { 
                 let movie = await response.json();
+                console.log(name);
+                console.log(movie);
+                setMovieImage(movie.data.poster);
+                setMovieRate(movie.data.rating);
+                setPlot(movie.data.plot);
+                setMovieTime(movie.data.length);
             }
         }
         catch(error){
