@@ -342,18 +342,12 @@ header form .search-bar {
 
 
 
-/*--------------------------------------------------------------
+/*-------------------------------------------------------------
 # Home page - Pid
 --------------------------------------------------------------*/
 
 .img-popular-big:hover{
   cursor: pointer;
-}
-
-main{
-  background-color: black;
-  margin-top: 0%;
-  height:100%;
 }
 
 #pid,  #pid2 , #my-profile-list{
