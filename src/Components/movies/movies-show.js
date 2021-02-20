@@ -3,8 +3,8 @@ import './movies.css'
 
 const MovieShowComponent =()=>{
     const [movieID] = useState(localStorage.getItem('movieID'));
+    const [name] = useState(JSON.parse(localStorage.getItem('movieName')).item.name);
     const [movieName, setMovieName] = useState('');
-    
     const [image, setMovieImage] = useState('');
     const [time, setMovieTime] = useState('');
     const [rate, setMovieRate] = useState('');
@@ -15,10 +15,14 @@ const MovieShowComponent =()=>{
     const [director, setMovieDirector] = useState('');
     const [plot, setPlot] = useState('');
 
-    useEffect(()=>{
-        getMovie();
-        getIMDB();
-    },[])
+    useEffect(() => {
+        async function fetchData() {
+            await getMovie();
+            await getIMDB(name);
+        }
+        fetchData();
+      }); 
+      
     async function getMovie(){
         try{
                 await fetch(`https://movies-smart.herokuapp.com/api/movies/${movieID}`)
@@ -37,40 +41,12 @@ const MovieShowComponent =()=>{
             console.log(`error - getMovie - ${error}`);
         }
     }
-    async function getIMDB(){
-        try{
-            const formData = {
-                'name' : movieName
-            };
-            let response = await fetch('https://movies-smart.herokuapp.com/api/movies/IMDB', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            });
-            if (response.ok) { 
-                await response.json().then(async function(movie) {
-                    console.log(movie);
-                    setMovieImage(movie.data.poster);
-                    setMovieRate(movie.data.rating);
-                    setPlot(movie.data.plot);
-                    setMovieTime(movie.data.length);
-                })
-            }
-        }
-        catch(error){
-            console.log(`error - getIMDB - ${error}`);
-        }
-    }
-
-
-
-
 
     async function getIMDB(name){
         try{
+            console.log(movieName);
             const formData = {
-                'name' : name
+                'name' : movieName
             };
             let response = await fetch('https://movies-smart.herokuapp.com/api/movies/IMDB', {
                 method: 'POST',
@@ -81,6 +57,12 @@ const MovieShowComponent =()=>{
             });
             if (response.ok) { 
                 let movie = await response.json();
+                console.log(name);
+                console.log(movie);
+                setMovieImage(movie.data.poster);
+                setMovieRate(movie.data.rating);
+                setPlot(movie.data.plot);
+                setMovieTime(movie.data.length);
             }
         }
         catch(error){

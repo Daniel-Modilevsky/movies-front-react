@@ -7,7 +7,7 @@ import $ from 'jquery';
 
 const SmartPage = () => {
     function sendIdToMovie(idMovie) {
-        writeStorage("favoriteMovie", idMovie);
+        writeStorage("movieID", idMovie);
     }
 
     async function getSmartVals() {
