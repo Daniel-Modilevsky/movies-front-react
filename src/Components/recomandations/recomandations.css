@@ -6,6 +6,8 @@
     display: block;
     width:86%;
     margin-left: 5%;
+    height: 2100px;
+    background-color: black;
 }
 #recommend-pid article{
     width:100%;

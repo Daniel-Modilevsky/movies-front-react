@@ -26,7 +26,7 @@ const MoviesMiniComponent =(props)=>{
 
     return (
             <article className="movie-mini hvr-curl-top-right hvr-shrink" onClick={sendIdToMovie} > 
-                <img src={movieImage} alt="movieImage"/>
+                <img src={movieImage} alt="movieImage" style={{width:"200px", height:"125px"}}/>
             </article>
         )
     }

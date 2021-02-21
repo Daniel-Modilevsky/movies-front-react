@@ -3,8 +3,8 @@ import './movies.css'
 
 const MovieShowComponent =()=>{
     const [movieID] = useState(localStorage.getItem('movieID'));
-    const [name] = useState(JSON.parse(localStorage.getItem('movieName')).item.name);
-    const [movieName, setMovieName] = useState('');
+    //const [name] = useState(JSON.parse(localStorage.getItem('movieName')).item.name);
+    const [movieName, setMovieName] = useState(JSON.parse(localStorage.getItem('movieName')).item.name);
     const [image, setMovieImage] = useState('');
     const [time, setMovieTime] = useState('');
     const [rate, setMovieRate] = useState('');
@@ -18,7 +18,7 @@ const MovieShowComponent =()=>{
     useEffect(() => {
         async function fetchData() {
             await getMovie();
-            await getIMDB(name);
+            await getIMDB();
         }
         fetchData();
       }); 
@@ -42,7 +42,7 @@ const MovieShowComponent =()=>{
         }
     }
 
-    async function getIMDB(name){
+    async function getIMDB(){
         try{
             console.log(movieName);
             const formData = {
@@ -57,7 +57,6 @@ const MovieShowComponent =()=>{
             });
             if (response.ok) { 
                 let movie = await response.json();
-                console.log(name);
                 console.log(movie);
                 setMovieImage(movie.data.poster);
                 setMovieRate(movie.data.rating);

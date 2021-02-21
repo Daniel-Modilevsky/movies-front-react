@@ -10,7 +10,6 @@ const ListsPage =()=>{
                     <h1>Lists Page</h1>
                 </header>
                 <div id="pid">  
-                    <MoviesListsComponent  type = {'Romance'}    />
                     <MoviesListsComponent  type = {'Thriller'}   />
                     <MoviesListsComponent  type = {'Animation'}  />
                     <MoviesListsComponent  type = {'Adventure'}  />
